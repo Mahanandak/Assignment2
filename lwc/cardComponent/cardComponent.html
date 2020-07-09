@@ -1,0 +1,25 @@
+<template>
+    <!--Displayd Account Data like Account Name,Account Number,Phone,Website,Rating-->
+    <div key={acc.Id} class="slds-box" style=" background-color: white;">
+        <lightning-layout>
+            <lightning-layout-item padding="around-small">
+                <lightning-card key={acc.Id} title={acc.Name}>
+                    <lightning-layout-item key={acc.Id} padding="around-small" size="12" small-device-size="6"
+                        large-device-size="6" medium-device-size="6">
+                        AccountNumber: {acc.AccountNumber} </lightning-layout-item><br />
+                    <lightning-layout-item key={acc.Id} padding="around-small" size="12" small-device-size="6"
+                        large-device-size="6" medium-device-size="6">
+                        Phone: {acc.Phone} </lightning-layout-item><br />
+                    <lightning-layout-item key={acc.Id} padding="around-small" size="12" small-device-size="6"
+                        large-device-size="6" medium-device-size="6">
+                        Rating: {acc.Rating} </lightning-layout-item><br />
+                    <lightning-layout-item key={acc.Id} padding="around-small" size="12" small-device-size="6"
+                        large-device-size="6" medium-device-size="6">
+                        Website: {acc.Website} </lightning-layout-item><br />
+                    <lightning-button variant="success" label="Details" class="slds-align_absolute-center"
+                        value={acc.Id} onclick={accountDetailsClick}></lightning-button>
+                </lightning-card>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>

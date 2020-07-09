@@ -1,0 +1,11 @@
+<template>
+    <!---accData used to display data in UI-->
+    <!--Passed data to card component-->
+    <lightning-layout multiple-rows>
+        <template if:true={accData}>
+            <template for:each={accData} for:item="acc">
+                <c-card-component acc={acc} key={acc.Id}></c-card-component>
+            </template>
+</template>
+</lightning-layout>
+</template>

@@ -1,0 +1,104 @@
+<template>
+    <!--checked If it is came from Detail Buton click-->
+    <template if:true={isCameFromDetail}>
+        <!--checked If it is came from Edit Button  click-->
+        <template if:false={accEditDetails}>
+            <lightning-card title="Account Details" icon-name="standard:contact">
+                <lightning-record-view-form record-id={accountDetailId} object-api-name={accountObj}>
+                    <lightning-layout>
+                        <lightning-layout-item style="margin-left: 4%">
+                            <span>Account Name: </span><br />
+                        </lightning-layout-item>
+                        <lightning-layout-item>
+                            <lightning-output-field variant="label-hidden" style="color: brown; font-weight: bold;"
+                                field-name="Name" padding="around-small" small-device-size="6" large-device-size="6"
+                                medium-device-size="6">
+                            </lightning-output-field>
+                        </lightning-layout-item>
+                    </lightning-layout><br />
+                    <lightning-layout>
+                        <lightning-layout-item style="margin-left: 4%">
+                            <span>Account Number: </span>
+                        </lightning-layout-item>
+                        <lightning-layout-item>
+                            <lightning-output-field variant="label-hidden" style="color: brown; font-weight: bold;"
+                                field-name="AccountNumber" value={accNumber} padding="around-small" size="12"
+                                small-device-size="6" large-device-size="6" medium-device-size="6">
+                            </lightning-output-field>
+                        </lightning-layout-item>
+                    </lightning-layout><br />
+                    <lightning-layout>
+                        <lightning-layout-item style="margin-left: 4%">
+                            <span>Account Phone: </span>
+                        </lightning-layout-item>
+                        <lightning-layout-item>
+                            <lightning-output-field variant="label-hidden" style="color: brown; font-weight: bold;"
+                                field-name="Phone" value={accPhone} padding="around-small" size="12"
+                                small-device-size="6" large-device-size="6" medium-device-size="6">
+                            </lightning-output-field>
+                        </lightning-layout-item>
+                    </lightning-layout><br />
+                    <lightning-layout>
+                        <lightning-layout-item style="margin-left: 4%">
+                            <span>Account Rating: </span>
+                        </lightning-layout-item>
+                        <lightning-layout-item>
+                            <lightning-output-field variant="label-hidden" style="color: brown; font-weight: bold;"
+                                field-name="Rating" value={accRating} padding="around-small" size="12"
+                                small-device-size="6" large-device-size="6" medium-device-size="6">
+                            </lightning-output-field>
+                        </lightning-layout-item>
+                    </lightning-layout><br />
+                    <lightning-layout>
+                        <lightning-layout-item style="margin-left: 4%">
+                            <span>Account Website: </span>
+                        </lightning-layout-item>
+                        <lightning-layout-item>
+                            <lightning-output-field variant="label-hidden" style="color: brown; font-weight: bold;"
+                                field-name="Website" value={accWebsite} padding="around-small" size="12"
+                                small-device-size="6" large-device-size="6" medium-device-size="6">
+                            </lightning-output-field>
+                        </lightning-layout-item>
+                    </lightning-layout><br />
+                </lightning-record-view-form>
+                <lightning-button variant="brand" label="Edit" class="slds-align_absolute-center"
+                    value={accountDetailId} onclick={accountEditClick}></lightning-button>
+            </lightning-card>
+        </template>
+</template>
+<!--checked If it is came from Detail Buton click-->
+<template if:false={isCameFromDetail}>
+        <lightning-card title="Account Details" icon-name="standard:contact">
+            <div class="slds-align_absolute-center" style="color:blac">
+                No Record Selected
+            </div>
+        </lightning-card>
+    </template>
+<!--checked If it is came from Detail Buton click-->
+<template if:true={isCameFromDetail}>
+    <!--checked If it is came from Edit Buton click-->
+        <template if:true={accEditDetails}>
+            <lightning-card title="Submit Your Enquiry" icon-name="standard:contact">
+                <lightning-record-edit-form object-api-name={accountObj} record-id={accountDetailId}
+                    onsuccess={handelAccountCreated}>
+                    <lightning-input-field field-name={nameField} value={accName}></lightning-input-field>
+
+                    <lightning-input-field field-name={accNoField} value={accNumber}></lightning-input-field>
+
+                    <lightning-input-field field-name={phoneField} value={accPhone}></lightning-input-field>
+
+                    <lightning-input-field field-name={websiteField} value={accWebsite}></lightning-input-field>
+
+                    <lightning-input-field field-name={ratingField} value={accRating}></lightning-input-field>
+
+                    <div class="slds-align_absolute-center">
+                        <lightning-button class="slds-p-around_small" variant="brand" label="Cancel"
+                            onclick={handelCancel}>
+                        </lightning-button>
+                        <lightning-button type="submit" variant="brand" label="Update Account"></lightning-button>
+                    </div>
+                </lightning-record-edit-form>
+            </lightning-card>
+        </template>
+</template>
+</template>

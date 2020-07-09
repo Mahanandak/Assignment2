@@ -1,0 +1,13 @@
+<template>
+    <!--displyed account type in combobox-->
+    <div class="slds-grid slds-wrap" style="background-color:white;">
+        <div class="slds-size_1-of-2">
+            <lightning-combobox name="accountList" label="Select Account Type" placeholder="Choose Account Name"
+                variant="label-stacked" value={selectedItem} options={options} onchange={accountNameChange}>
+            </lightning-combobox>
+        </div>
+        <div class="slds-size_1-of-2 slds-p-top_large slds-p-left_x-small">
+            <lightning-button label="Search" onclick={handleTypeSearch} variant="brand"></lightning-button>
+        </div>
+    </div>
+</template>
